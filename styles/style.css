@@ -240,8 +240,10 @@ footer {
 
 .about-section {
     padding: 4rem 2rem;
+    background-image: url('assets/aboutbg.jpg'); /* Add your image path */
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     color: white; /* Assuming a dark background image */
     text-align: center;
     position: relative;
@@ -254,9 +256,10 @@ footer {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.6); /* Dark overlay to enhance text visibility */
+    background: rgba(0, 0, 0, 0.5); /* Optional: Add a dark overlay for better readability */
     z-index: 1;
 }
+
 
 .about-content {
     position: relative;
