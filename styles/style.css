@@ -1,3 +1,4 @@
+/* General styles */
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
@@ -7,29 +8,41 @@ body {
 }
 
 nav {
-        display: flex;
-        align-items: center; /* Align logo and nav links vertically */
-        justify-content: space-between; /* Space out the logo and nav items */
-        background-color: rgba(0, 0, 0, 0.7); /* Navigation background */
-        color: white;
-        z-index: 10; /* Ensure nav is above other elements */
-        position: relative; /* Make z-index work */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    z-index: 10;
+    padding: 0 20px;
+    z-index: 10;
+    position: relative;
+}
+
+.nav-logo {
+    max-width: 80px;
+    padding-left: 20px;
+    padding-top: 10px;
 }
 
 nav ul {
     list-style-type: none;
     padding: 0;
-    display: flex;
-    justify-content: right;
+    margin: 0;
+    display: flex; /* Default layout for larger screens */
+    justify-content: flex-end;
 }
+
 nav ul li {
-    margin: 0 30px;
+    margin: 0 20px;
 }
+
 nav ul li a {
     color: white;
     text-decoration: none;
     transition: color 0.3s;
 }
+
 nav ul li a:hover {
     color: #f4a460;
 }
@@ -44,71 +57,111 @@ nav ul li a[href$="SFC_Menu.pdf"] {
 }
 
 nav ul li a[href$="SFC_Menu.pdf"]:hover {
-    background-color: #d49357; /* Change on hover */
+    background-color: #d49357;
 }
 
-.nav-logo {
-    max-width: 80px; /* Adjust the logo size */
-    padding-left: 20px;
-    padding-top: 10px;
+/* Hamburger menu for mobile view */
+.hamburger {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    nav ul {
+        display: none; /* Hide nav links by default on mobile */
+    }
+
+    .hamburger {
+        display: flex; /* Show hamburger menu on mobile */
+    }
+
+    /* Show mobile nav links when toggled */
+    nav ul.mobile {
+        display: flex; /* Show mobile nav links */
+        flex-direction: column; /* Stack links vertically */
+        background-color: rgba(0, 0, 0, 0.9);
+        position: absolute;
+        top: 60px; /* Adjust based on your nav height */
+        right: 0;
+        width: 100%;
+        padding: 0;
+        z-index: 999;
+    }
+
+    nav ul.mobile li {
+        text-align: center; /* Center align text in mobile view */
+        padding: 15px 0; /* Add padding for clickable area */
+        margin: 0;
+    }
+
+    nav ul.mobile li a {
+        padding: 10px;
+    }
 }
 
 .background-container {
-    background-image: url('assets/homebg.jpg'); /* Your background image */
-    background-size: cover; /* Cover the entire container */
-    background-position: center 10%; /* Center the background image */
-    height: 80vh; /* Set the height to cover the entire viewport */
-    position: relative; /* Establish positioning context for absolute children */
+    background-image: url('assets/homebg.jpg');
+    background-size: cover;
+    background-position: center 10%;
+    height: 80vh;
+    position: relative;
 }
 
 #home {
-    height: 66.67vh; /* Set height to 2/3 of the viewport height */
-    display: flex; /* Enable flexbox layout */
-    flex-direction: column; /* Align items vertically */
-    justify-content: center; /* Center items vertically */
-    align-items: center; /* Center items horizontally */
-    text-align: center; /* Center text */
-    color: white; /* Set text color to white */
-    z-index: 1; /* Position it below the nav */
+    height: 66.67vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    z-index: 1;
 }
 
 .logo-container {
-    position: relative; /* Create a positioning context */
-    z-index: 2; /* Ensure it is above the overlay */
-    text-align: center; /* Center alignment for logo and subtitle */
+    position: relative;
+    z-index: 2;
+    text-align: center;
 }
 
 .overlay {
-    position: absolute; /* Position the overlay */
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.4); /* Dark overlay with 30% opacity */
-    z-index: 1; /* Ensure overlay is below the logo and subtitle */
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
 }
 
 .logo {
-    max-width: 1000px; /* Adjust size as needed */
-    height: auto; /* Maintain aspect ratio */
-    display: block; /* Center alignment */
-    margin-top: 40px; /* Center the logo */
+    max-width: 1000px;
+    height: auto;
+    display: block;
+    margin-top: 40px;
 }
 
 .logonav {
-    max-width: 200px; /* Adjust size as needed */
+    max-width: 200px;
     display: flex;
     position: absolute;
-    height: auto; /* Maintain aspect ratio */
+    height: auto;
     justify-content: right;
-
 }
 
-
 .logo-container h2 {
-    font-size: 2rem; /* Adjust font size */
-    color: white; /* Set text color */
-    margin-top : -20px;
+    font-size: 2rem;
+    color: white;
+    margin-top: -20px;
     font-family: serif;
 }
 
@@ -122,112 +175,104 @@ nav ul li a[href$="SFC_Menu.pdf"]:hover {
     font-weight: bold;
     transition: background-color 0.3s;
 }
+
 .cta-button:hover {
     background-color: #d49138;
 }
 
+/* Basic styles for the service section */
 #services {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid with consistent sizing */
-    gap: 30px; /* Space between cards */
-    padding: 50px 5px; /* Padding around the entire grid */
-    margin: 0 auto;
-    max-width: 1200px; /* Optional: Limit max width for larger screens */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: #f4f4f4; /* Section background */
 }
 
-
+/* Styling for each service card */
 .service-card {
-    position: relative;
+    position: relative; /* Position to contain the shine effect */
+    width: 200px;
+    height: 250px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end; /* Push the content to the bottom */
-    background-size: cover;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    margin: 20px;
+    color: white;
+    font-size: 1.2em;
+    background-size: cover; /* Ensures background covers the card */
     background-position: center;
     border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     overflow: hidden;
-    color: white;
-    padding: 20px;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    min-height: 250px; /* Ensure a consistent height */
+    transition: transform 0.3s, filter 0.3s ease;
 }
 
-
+/* Remove background behind the text */
 .service-card h3 {
-    margin-bottom: 0px;
-    font-size: 24px;
-    
-}
-
-.service-card p {
-    font-size: 16px;
+    font-weight: bold;
+    font-size: 1 em;
+    z-index: 2;
 }
 
 /* Background images for each card */
 .service-card:nth-child(1) {
-    background-image: url('assets/wedding.jpg'); /* Replace with your image */
+    background-image: url('assets/wedding.jpg');
 }
 
 .service-card:nth-child(2) {
-    background-image: url('assets/corporate.jpg'); /* Replace with your image */
+    background-image: url('assets/corporate.jpg');
 }
 
 .service-card:nth-child(3) {
-    background-image: url('assets/birthday.jpg'); /* Replace with your image */
+    background-image: url('assets/birthday.jpg');
 }
 
 .service-card:nth-child(4) {
-    background-image: url('assets/temple.jpg'); /* Replace with your image */
+    background-image: url('assets/temple.jpg');
 }
 
 .service-card:nth-child(5) {
-    background-image: url('assets/private.jpg'); /* Replace with your image */
+    background-image: url('assets/private.jpg');
 }
 
-/* Hover effect: zoom out and shine */
-.service-card:hover {
-    transform: scale(1.05); /* Slight zoom out */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Shadow effect */
-}
-
-.service-card:hover:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    width: 150%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.2);
-    transition: left 0.7s ease;
-}
-/* Shine effect */
-.service-card:hover:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -75%;
-    width: 150%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.2);
-    transform: skewX(-25deg);
-    transition: left 0.7s ease;
-}
-
+/* Dim to bright hover effect */
 .service-card::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2)); /* Dark to light gradient */
-    z-index: 1; /* Ensure the gradient is over the background image but below text */
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Initial dim effect */
+    transition: background 0.4s ease; /* Smooth transition */
 }
 
-/* Ensure text is above shine effect */
-.service-card h3, .service-card p {
-    position: relative;
-    z-index: 2;
+.service-card:hover::before {
+    background: rgba(0, 0, 0, -1); /* Brightens on hover */
 }
+
+.service-card:hover {
+    transform: scale(1.05); /* Slight scaling effect */
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+    #services {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service-card {
+        width: 90%;
+        height: 200px;
+        margin: 10px 0;
+    }
+}
+
 
 footer {
     background-color: #333;
@@ -240,11 +285,11 @@ footer {
 
 .about-section {
     padding: 4rem 2rem;
-    background-image: url('assets/aboutbg.jpg'); /* Add your image path */
+    background-image: url('assets/aboutbg.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    color: white; /* Assuming a dark background image */
+    color: white;
     text-align: center;
     position: relative;
 }
@@ -256,14 +301,13 @@ footer {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5); /* Optional: Add a dark overlay for better readability */
+    background: rgba(0, 0, 0, 0.5);
     z-index: 1;
 }
 
-
 .about-content {
     position: relative;
-    z-index: 2; /* Ensures content is above the overlay */
+    z-index: 2;
     max-width: 800px;
     margin: 0 auto;
 }
@@ -280,14 +324,10 @@ footer {
 }
 
 #contact {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid with consistent sizing */
-    gap: 30px; /* Space between cards */
-    padding: 50px 5px; /* Padding around the entire grid */
+    padding: 50px 5px;
     margin: 0 auto;
-    max-width: 1200px; /* Optional: Limit max width for larger screens */
+    max-width: 1200px;
 }
-
 
 .contact-content {
     padding-top: 50px;
@@ -295,57 +335,94 @@ footer {
 }
 
 .contact-content p {
-    text-align: center; /* Center the heading */
-    font-size: 20px; /* Heading size */
-    color: #333; /* Heading color */
+    text-align: center;
+    font-size: 20px;
+    color: #333;
 }
 
 .contact-grid {
-    display: grid; /* Use grid layout */
-    grid-template-columns: repeat(3, 1fr); /* 2 equal columns */
-    gap: 50px; /* Consistent gap between grid items */
-    align-items: center; /* Center items vertically */
-    justify-items: center; /* Center items horizontally */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+    align-items: center;
+    justify-items: center;
 }
 
 .contact-item {
-    display: flex; /* Use Flexbox */
-    flex-direction: column; /* Stack items vertically */
-    justify-content: center; /* Center vertically */
-    align-items: center; /* Center horizontally */
-    background-color: white; /* Background color for each item */
-    padding: 20px; /* Increased padding inside each item */
-    border-radius: 8px; /* Rounded corners for items */
-    text-align: center; /* Center text in items */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: box shadow for items */
-    width: 300px; /* Ensure items take full width of grid cell */
-    height: 130px; /* Fixed height */
-    margin: 0px 50;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    height: 130px;
 }
 
 .contact-item i {
-    font-size: 30px; /* Increased icon size */
-    color: #f4a460; /* Icon color */
+    font-size: 30px;
+    color: #f4a460;
 }
 
 .contact-item .fab {
-    margin-left: 10px; /* Space between phone icon and WhatsApp icon */
+    margin-left: 10px;
 }
 
 .download-button {
-    display: inline-block; /* Display as block for padding */
-    background-color: #f4a460; /* Button background color */
-    color: white; /* Button text color */
-    padding: 12px 24px; /* Increased padding around the button */
-    border-radius: 5px; /* Rounded corners */
-    text-decoration: none; /* Remove underline */
-    margin-top: 10px; /* Space above the button */
-    text-align: center; /* Center text */
-    transition: background-color 0.3s; /* Smooth background color transition */
+    display: inline-block;
+    background-color: #f4a460;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 10px;
+    text-align: center;
+    transition: background-color 0.3s;
 }
 
 .download-button:hover {
-    background-color: #e09e4d; /* Darker shade on hover */
+    background-color: #e09e4d;
 }
 
+/* Mobile view */
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+    }
 
+    .hamburger {
+        display: flex;
+    }
+
+    nav ul.mobile {
+        display: flex;
+    }
+
+    .service-card {
+        min-height: 200px;
+    }
+
+    #services {
+        grid-template-columns: 1fr; /* One column in mobile view */
+    }
+
+    footer {
+        padding: 1rem 0;
+    }
+
+    .about-section {
+        padding: 2rem 1rem;
+    }
+
+    #contact {
+        padding: 20px 0; /* Add some padding for mobile */
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr; /* One column in mobile view */
+        padding: 0 20px; /* Add padding for mobile view */
+    }
+}

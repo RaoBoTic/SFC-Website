@@ -13,14 +13,19 @@
 <header>
     <section class="background-container">
     <nav>
-
-         <div class="logo-container">
+        <div class="logo-container">
             <a href="#home">
                 <img src="styles/assets/icon.png" alt="Sandi Food Catering Logo" class="nav-logo">
             </a>
         </div>
 
-        <ul>
+        <div class="hamburger" id="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+        <ul id="nav-links"> <!-- Add this id here -->
             <li><a href="#home">Home</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#about">About Us</a></li>
@@ -36,7 +41,6 @@
         <div class="overlay"> </div>
     </section>
 </header>
-
 
     <main>
 
@@ -116,5 +120,18 @@
     <footer>
         <p>&copy; 2024 Sandi Food Catering. All rights reserved.</p>
     </footer>
+
+<script>
+    document.getElementById('hamburger').addEventListener('click', function() {
+        const navLinks = document.getElementById('nav-links');
+        navLinks.classList.toggle('mobile');
+        if (navLinks.style.display === 'flex') {
+            navLinks.style.display = 'none';
+        } else {
+            navLinks.style.display = 'flex';
+        }
+    });
+</script>
+
 </body>
 </html>
