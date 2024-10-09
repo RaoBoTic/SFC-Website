@@ -135,17 +135,13 @@ nav ul li a[href$="SFC_Menu.pdf"]:hover {
 
 @media (max-width: 768px) {
     #home .logo {
-        max-width: 400px; /* Increase specificity */
-        padding-bottom: 20px;
+        display: none; /* Hide on small screens */
+    }
+
+    #home .small-logo {
+        display: block; /* Show on small screens */
     }
 }
-
-@media (max-width: 480px) {
-    #home .logo {
-        max-width: 300px; /* Increase specificity */
-    }
-}
-
 
 .overlay {
     position: absolute;
@@ -162,6 +158,11 @@ nav ul li a[href$="SFC_Menu.pdf"]:hover {
     height: auto;
     display: block;
     margin-top: 40px;
+    display: block; /* Show by default */
+}
+
+.small-logo {
+    display: none; /* Hide by default */
 }
 
 .logonav {
